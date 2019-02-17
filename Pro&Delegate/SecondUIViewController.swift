@@ -8,7 +8,8 @@
 
 import UIKit
 protocol DataPass{
-    func dataPassing(name:String, address:String, city:String)
+//    func dataPassing(name:String, address:String, city:String)
+    func data(object:[String:String])
 }
 class SecondUIViewController: UIViewController {
     @IBOutlet weak var nameTxtFld: UITextField!
@@ -30,7 +31,11 @@ class SecondUIViewController: UIViewController {
         }else if cityTxtFld.text == "" {
             Alert(Title:"City", Msg: "Enter City", delegate: self)
         }else{
-            delegate.dataPassing(name: nameTxtFld.text!, address: addressTxtFld.text!, city: cityTxtFld.text!)
+//            delegate.dataPassing(name: nameTxtFld.text!, address: addressTxtFld.text!, city: cityTxtFld.text!)
+            let dic:[String:String] = ["name":nameTxtFld.text!,"address":addressTxtFld.text!,"city":cityTxtFld.text!]
+            delegate.data(object: dic)
+            
+            
             let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
             self.navigationController?.popToRootViewController(animated: true)
         }

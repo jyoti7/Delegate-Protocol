@@ -27,10 +27,17 @@ class ViewController: UIViewController,DataPass {
         self.navigationController?.pushViewController(sceondVC, animated: true)
         
     }
-    func dataPassing(name: String, address: String, city: String) {
-        nameLbl.text = name
-        addressLbl.text = address
-        cityLbl.text = city
+//    func dataPassing(name: String, address: String, city: String) {
+//        nameLbl.text = name
+//        addressLbl.text = address
+//        cityLbl.text = city
+    
+    func data(object: [String : String]) {
+        nameLbl.text = object["name"]
+                addressLbl.text = object["address"]
+        cityLbl.text = object["city"]
+    
+    
     }
 }
 
